@@ -1,0 +1,262 @@
+/* Base reset */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* box-sizing and font sizing */
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+
+    /* Set font size for easy rem calculations
+     * default document font size = 16px, 1rem = 16px, 100% = 16px
+     * (100% / 16px) * 10 = 62.5%, 1rem = 10px, 62.5% = 10px
+    */
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+/* A few media query to set some font sizes at different screen sizes.
+   * This helps automate a bit of responsiveness.
+   * The trick is to use the rem unit for size values, margin and padding.
+   * Because rem is relative to the document font size
+   * when we scale up or down the font size on the document
+   * it will affect all properties using rem units for the values.
+  */
+
+/* I am using the em unit for breakpoints
+   * The calculation is the following
+   * screen size divided by browser base font size
+   * As an example: a breakpoint at 980px
+   * 980px / 16px = 61.25em
+  */
+
+/* 1200px / 16px = 75em */
+@media (max-width: 75em) {
+    html {
+        font-size: 60%;
+    }
+}
+
+/* 980px / 16px = 61.25em */
+@media (max-width: 61.25em) {
+    html {
+        font-size: 58%;
+    }
+}
+
+/* 460px / 16px = 28.75em */
+@media (max-width: 28.75em) {
+    html {
+        font-size: 55%;
+    }
+}
+
+/* Base styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 2rem; /* 20px */
+    font-weight: 400;
+    line-height: 1.4;
+    color: #333;
+    background-color: #f5f5f5;
+}
+
+h1, h2 {
+    font-family: 'Merriweather', serif;
+    font-weight: 700;
+    text-align: center;
+}
+
+h1 {
+    font-size: 6rem;
+}
+
+h2 {
+    font-size: 4.2rem;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+/* nav */
+.nav {
+    display: flex;
+    justify-content: flex-end;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #f5f5f5;
+    z-index: 999;
+}
+
+.nav-list {
+    display: flex;
+    margin-right: 2rem;
+}
+
+@media (max-width: 28.75em) {
+    .nav {
+        justify-content: center;
+    }
+
+    .nav-list {
+        margin: 0 1rem;
+    }
+}
+
+.nav-list a {
+    display: block;
+    font-size: 2.2rem;
+    padding: 2rem;
+    transition: box-shadow 0.3s ease;
+}
+
+.nav-list a:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Home section */
+.home-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.home-section p {
+    font-size: 3rem;
+    font-weight: 200;
+    font-style: italic;
+}
+
+.about-section {
+    height: 100vh;
+    padding: 10rem 2rem;
+}
+
+.about-section p {
+    line-height: 1.6;
+    max-width: 960px;
+    margin: 3rem auto;
+}
+
+/* Portfolio section */
+.portfolio-section {
+    text-align: center;
+    padding: 10rem 2rem;
+    margin-top: 10rem;
+}
+
+/* "Automagic" image grid using no media queries */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-gap: 4rem;
+    margin: 0 auto;
+    margin-top: 6rem;
+}
+
+@media (max-width: 30.625em) {
+    .portfolio-section {
+        padding: 6rem 1rem;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.project {
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.project:hover {
+    transform: translateY(10px);
+}
+
+.project-image {
+    height: calc(100% - 6.8rem);
+    object-fit: cover;
+}
+
+.project-title {
+    padding: 0 0.5rem;
+    margin-top: 1rem;
+}
+
+/* Contact section */
+.contact-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 80vh;
+    padding: 0 2rem;
+}
+
+.contact-section h2 {
+    font-size: 6rem;
+}
+
+@media (max-width: 28.75em) {
+    .contact-section h2 {
+        font-size: 4rem;
+    }
+}
+
+.contact-section p {
+    font-size: 2rem;
+}
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 980px;
+    margin-top: 4rem;
+    flex-wrap: wrap;
+}
+
+.contact-details {
+    font-size: 2.4rem;
+    display: inline-block;
+    padding: 1rem;
+    border-radius: 2px;
+    transition: transform 0.3s ease;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.contact-details:hover {
+    transform: translateY(5px);
+}
+
+/* Footer */
+footer {
+    font-weight: 300;
+    padding: 2rem;
+    text-align: center;
+}
+
+footer p {
+    margin: 2rem;
+}
