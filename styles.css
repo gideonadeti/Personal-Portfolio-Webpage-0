@@ -60,24 +60,21 @@ html {
 body {
     font-family: 'Roboto', sans-serif;
     font-size: 2rem; /* 20px */
-    font-weight: 400;
-    line-height: 1.4;
     color: #333;
     background-color: #f5f5f5;
 }
 
 h1, h2 {
     font-family: 'Merriweather', serif;
-    font-weight: 700;
     text-align: center;
 }
 
 h1 {
-    font-size: 6rem;
+    font-size: 7rem;
 }
 
 h2 {
-    font-size: 4.2rem;
+    font-size: 4.2rem; /* 60% of h1 */
 }
 
 ul {
@@ -90,7 +87,6 @@ a {
 }
 
 img {
-    display: block;
     width: 100%;
 }
 
@@ -123,13 +119,13 @@ img {
 
 .nav-list a {
     display: block;
-    font-size: 2.2rem;
+    font-size: 2.5rem;
     padding: 2rem;
     transition: box-shadow 0.3s ease;
 }
 
 .nav-list a:hover {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
 }
 
 /* Home section */
@@ -143,32 +139,31 @@ img {
 
 .home-section p {
     font-size: 3rem;
-    font-weight: 200;
     font-style: italic;
 }
 
+/* About section */
 .about-section {
     height: 100vh;
-    padding: 10rem 2rem;
+    padding: 10rem 5rem;
 }
 
 .about-section p {
-    line-height: 1.6;
-    max-width: 960px;
+    line-height: 1.5;
+    max-width: 96rem;
     margin: 3rem auto;
 }
 
 /* Portfolio section */
 .portfolio-section {
     text-align: center;
-    padding: 10rem 2rem;
-    margin-top: 10rem;
+    padding: 10rem 5rem;
 }
 
-/* "Automagic" image grid using no media queries */
+/* "Automatic" image grid using no media queries */
 .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
     grid-gap: 4rem;
     margin: 0 auto;
     margin-top: 6rem;
@@ -185,23 +180,35 @@ img {
 }
 
 .project {
-    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0.1rem 0.1rem 0.2rem rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease;
 }
 
 .project:hover {
-    transform: translateY(10px);
+    transform: translateY(1rem);
 }
 
 .project-image {
-    height: calc(100% - 6.8rem);
-    object-fit: cover;
+    height: calc(100% - 6rem);
 }
 
 .project-title {
-    padding: 0 0.5rem;
-    margin-top: 1rem;
+    padding: 1rem 0.5rem;
 }
+
+.show-all {
+    color: #fff;
+    background-color: #333;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    margin: auto;
+    transition: transform 0.3s ease;
+}
+
+.show-all:hover {
+    transform: translateX(1rem);
+}
+
 
 /* Contact section */
 .contact-section {
@@ -215,7 +222,7 @@ img {
 }
 
 .contact-section h2 {
-    font-size: 6rem;
+    font-size: 7rem;
 }
 
 @media (max-width: 28.75em) {
@@ -225,29 +232,27 @@ img {
 }
 
 .contact-section p {
-    font-size: 2rem;
+    font-size: 2.25rem;
 }
 
 .contact-links {
     display: flex;
     justify-content: center;
-    width: 100%;
-    max-width: 980px;
+    max-width: 96rem;
     margin-top: 4rem;
     flex-wrap: wrap;
 }
 
 .contact-details {
-    font-size: 2.4rem;
+    font-size: 2.5rem;
     display: inline-block;
     padding: 1rem;
-    border-radius: 2px;
     transition: transform 0.3s ease;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    text-shadow: 0.1rem 0.1rem 0.2rem rgba(0, 0, 0, 0.3);
 }
 
 .contact-details:hover {
-    transform: translateY(5px);
+    transform: translateY(0.5rem);
 }
 
 /* Footer */
